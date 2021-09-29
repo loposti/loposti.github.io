@@ -1,0 +1,22 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const tabId = document.querySelector('#tabId').value;
+  const menuContainer = document.querySelector('.InternalMenu');
+  const listItems = document.querySelectorAll('.InternalMenu__item');
+
+  function scrollIetem(xOffset, yOffset, container){
+    container.scroll((xOffset - (window.innerWidth / 4)),yOffset);
+  }
+
+  for (let itemIndex = 0; itemIndex < listItems.length; itemIndex++) {
+    const item = listItems[itemIndex];
+    if(tabId === item.dataset.itemId){
+      item.classList.add('active');
+      const itemOffset = item.offsetLeft;
+      scrollIetem(itemOffset, 0, menuContainer);
+    }else{
+      if(item.classList.contains('active')){
+        item.classList.remove('active');
+      }
+    }
+  }
+});

@@ -1,0 +1,3 @@
+function goTop(){document.body.scrollTop=0;document.documentElement.scrollTop=0;}
+function handlePortalsChange(e){let URL=e.target.value;if(URL){window.open(URL,'_blank');}}
+document.addEventListener("DOMContentLoaded",function(){const goTopButton=document.querySelector('.goTop__button');goTopButton.addEventListener('click',function(){goTop();});const portalsSelect=document.querySelector('#Portals');portalsSelect.onchange=handlePortalsChange;});
